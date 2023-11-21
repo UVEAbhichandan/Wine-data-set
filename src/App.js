@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import { useEffect, useState, useMemo } from 'react';
 import './App.css';
+import { alcholSorter, 
+         dataParser,
+         median
+       } from './utils/utils';
+import wineDataRaw from './Assets/wineDataSet.json';
 
 function App() {
+  console.log(median([{Flavanoids: 2},{Flavanoids: 3},{Flavanoids: 1},{Flavanoids: 4}]),1);
+
+  const data = dataParser(wineDataRaw);
+  const [alcohols, setAlcohols] = useState({});
+
+  useEffect(() =>{
+    console.log(2);
+    setAlcohols(alcholSorter(data));
+    console.log(3);
+  }, [data]);
+
+  console.log(alcohols, 4);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>WINE DATA DISPLAY</h1>
+      {JSON.stringify(alcohols)}
     </div>
   );
 }

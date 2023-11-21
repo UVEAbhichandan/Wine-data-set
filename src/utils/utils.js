@@ -19,16 +19,16 @@ export function meanCalculator(data) {
     if (!data) {
         return;
     }
-    const sum = data.reduce((acc, cur) => acc + cur.Flavanoids, 0);
+    const sum = data.reduce((acc, cur) => acc + Number(cur.Flavanoids) , 0);
     const mean = sum / data.length;
-    return mean;
+    return mean.toFixed(3);
 }
 
-export function mode(mean, median) {
-    return 3 * median - 2 * mean;
+export function modeCalculator(mean, median) {
+    return (3 * median - 2 * mean).toFixed(3);
 }
 
-export function median(data) {
+export function medianCalculator(data) {
     if (!data) {
         return;
     }
@@ -37,7 +37,7 @@ export function median(data) {
     const isEven = n % 2 === 0;
     let mid = Math.floor(n/2);
     if (isEven) {
-        return (data[mid].Flavanoids + data[mid-1].Flavanoids) / 2
+        return ((data[mid].Flavanoids + data[mid-1].Flavanoids) / 2).toFixed(3)
     }
-    return data[mid].Flavanoids;
+    return (data[mid].Flavanoids).toFixed(3);
 }

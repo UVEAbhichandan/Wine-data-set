@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 50px;
 }
 
 code {
@@ -12,9 +13,24 @@ code {
     monospace;
 }
 .table{
-  border: 1px solid black
+  width: 50%;
+  border: 1px solid black;
+  border-collapse: collapse
 }
 
 td, th{
+  padding: 5px;
   border: 1px solid black
+}
+
+.heading {
+  font-weight: 600;
+}
+
+td{
+  text-align: center;
+}
+
+.spacer{
+  margin-top: 20px;
 }
